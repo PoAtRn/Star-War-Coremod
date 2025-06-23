@@ -1,3 +1,17 @@
+
+
+buildscript {
+    repositories {
+        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
+        maven { url = "https://repo.spongepowered.org/repository/maven-public/" }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath "org.spongepowered:mixingradle:0.7-SNAPSHOT"
+    }
+}
+
 plugins {
     id 'eclipse'
     id 'idea'
@@ -145,6 +159,14 @@ repositories {
         }
     }
 
+    maven {
+        name = "Modrinth Maven"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup("maven.modrinth")
+        }
+    }
+
     maven { url = 'https://maven.minecraftforge.net' }
     maven {
         name = 'tterrag maven'
@@ -165,10 +187,6 @@ repositories {
     mavenCentral()
 }
 
-mixin {
-    add sourceSets.main, "mixins.void_power.refmap.json"
-    config 'mixins.void_power.json'
-}
 
 dependencies {
     // Specify the version of Minecraft to use.
@@ -227,7 +245,13 @@ dependencies {
     implementation fg.deobf("curse.maven:create-tweaked-controllers-898849:5206625")
 
     // Toms peripheral
-    //implementation fg.deobf("curse.maven:toms-peripheral-931210:5265063")
+    implementation fg.deobf("curse.maven:toms-peripheral-931210:5265063")
+
+    // CC VS
+    runtimeOnly fg.deobf("curse.maven:cc_vs-958065:6024939")
+
+    // CH
+    implementation fg.deobf("maven.modrinth:cosmic-horizons-cosmos:${cosmos_version}")
 
     // VS CW
     runtimeOnly fg.deobf("curse.maven:architectury-api-419699:5137938")
@@ -286,4 +310,15 @@ tasks.named('jar', Jar).configure {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+
+apply plugin: "org.spongepowered.mixin"
+
+mixin {
+    add sourceSets.main, 'mixins.starwarcore.refmap.json'
+    config 'mixins.starwarcore.json'
+
+    debug.export = true
+
 }
