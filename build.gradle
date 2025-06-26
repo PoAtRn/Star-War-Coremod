@@ -168,6 +168,7 @@ repositories {
     }
 
     maven { url = 'https://maven.minecraftforge.net' }
+    
     maven {
         name = 'tterrag maven'
         url = 'https://maven.tterrag.com/'
@@ -209,6 +210,8 @@ dependencies {
     implementation fg.deobf("com.simibubi.create:create-${create_minecraft_version}:${create_version}:slim") { transitive = false }
     implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${flywheel_minecraft_version}:${flywheel_version}")
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    // warp core?
 
     // vs2 dependencies
     //implementation fg.deobf("org.valkyrienskies:valkyrienskies-120-forge:${vs2_version}") { transitive = false }
@@ -272,6 +275,7 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
