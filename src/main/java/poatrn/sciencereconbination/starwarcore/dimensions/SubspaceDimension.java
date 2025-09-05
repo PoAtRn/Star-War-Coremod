@@ -53,11 +53,6 @@ public class SubspaceDimension {
         HolderGetter<DimensionType> dimTypes = context.lookup(Registries.DIMENSION_TYPE);
         HolderGetter<NoiseGeneratorSettings> noiseGenSettings = context.lookup(Registries.NOISE_SETTINGS);
 
-        NoiseBasedChunkGenerator noiseBasedChunkGenerator = new NoiseBasedChunkGenerator(
-                new FixedBiomeSource(biomeRegistry.getOrThrow(Biomes.THE_VOID)),
-                noiseGenSettings.getOrThrow(NoiseGeneratorSettings.END)
-        );
-
         FlatLevelGeneratorSettings generatorSettings = new FlatLevelGeneratorSettings(Optional.empty(), biomeRegistry.getOrThrow(Biomes.THE_VOID), List.of());
 
         VoidGenerator voidGenerator = new VoidGenerator(generatorSettings);

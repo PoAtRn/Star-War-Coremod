@@ -1,0 +1,14 @@
+{
+  "type": "cosmos:gaia_bh_1",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "cosmos:space",
+      "lakes": false,
+      "features": false,
+      "layers": [
+      ],
+      "structure_overrides": ""
+    }
+  }
+}

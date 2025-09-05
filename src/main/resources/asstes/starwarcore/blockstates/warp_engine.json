@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "starwarcore:block/warp_engine/block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "starwarcore:block/warp_engine/block"
+    },
+    "facing=south": {
+      "model": "starwarcore:block/warp_engine/block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "starwarcore:block/warp_engine/block",
+      "y": 270
+    }
+  }
+}
